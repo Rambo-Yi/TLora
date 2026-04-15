@@ -1,11 +1,15 @@
 
-# TLoRA:Task-aware Low Rank Adaptation of Large Language Models
+# TLoRA: Task-aware Low Rank Adaptation of Large Language Models (ACL2026 Main)
+The code for  TLoRA: Task-aware Low Rank Adaptation of Large Language Models (ACL2026 Main)
 
-We introduce Task-aware Low-Rank Adaptation (TLoRA), a novel parameter-efficient fine-tuning (PEFT) method that enhances
-LoRA by incorporating task-aware initialization and adaptive assignment of rank and scaling factors. Extensive experimen
-ts demonstrate that TLoRA consistently outperforms LoRA and its variants across a wide range of tasks, including natural
-language understanding, commonsense reasoning, mathematical reasoning, code generation, and dialogue generation. Below, 
-we provide a code example based on a large-scale model experiment:
+Low-Rank Adaptation (LoRA) has become a widely adopted parameter-efficient fine-tuning method for large language models, with its effectiveness largely influenced by the allocation of ranks and scaling factors, 
+as well as initialization. Existing LoRA variants typically address only one of these factors, often at the cost of increased training complexity or reduced practical efficiency. In this work,
+we present Task-aware Low-Rank Adaptation (TLoRA), a unified framework that jointly optimizes initialization and resource allocation at the outset of training. TLoRA introduces a data-driven initialization strategy that aligns the LoRA 
+ A matrix with task-relevant subspaces by performing singular value decomposition on the product of pre-trained weights and input activation covariance. After this, the 
+ matrix A is frozen, and only the 
+ matrix B is trained. Furthermore, TLoRA employs a sensitivity-based importance metric to adaptively allocate ranks and scaling factors across layers under a fixed parameter budget. 
+ We conduct extensive experiments that demonstrate TLoRA consistently performs excellently across various tasks, including natural language understanding, commonsense reasoning, 
+ math reasoning, code generation, and chat generation, while significantly reducing the number of trainable parameters.
 
 
 ## Requirements
